@@ -13,9 +13,9 @@ class BurgersController < ApplicationController
   end
 
   def create
-    binding.pry
     @burger = Burger.new(burger_params)
-    @burger.ingredients << params[:ingredients] if params[:ingredients]
+
+    @burger.add_ingredients(params) if params['burger']["ingredients"]
     if @burger.save
       render json: @burger, status: :created, location: @burger
     else
