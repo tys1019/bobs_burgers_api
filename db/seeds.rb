@@ -54,6 +54,8 @@ feta = Ingredient.create!(name: 'feta', category: 'cheese')
 provolone = Ingredient.create!(name: 'provolone', category: 'cheese')
 gouda = Ingredient.create!(name: 'gouda', category: 'cheese')
 gruyere = Ingredient.create!(name: 'gruyere', category: 'cheese')
+camembert = Ingredient.create!(name: 'camembert', category: 'cheese')
+
 
 
 cajun = Ingredient.create!(name: 'cajun', category: 'sauce')
