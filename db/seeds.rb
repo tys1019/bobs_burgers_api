@@ -1,9 +1,16 @@
+Burger.destroy_all
+Ingredient.destroy_all
+
 sub_roll = Ingredient.create!(name: 'sub roll', category: 'bun')
 sourdough = Ingredient.create!(name: 'sourdough', category: 'bun')
 seven_grain = Ingredient.create!(name: 'seven-grain bun', category: 'bun')
 brioche = Ingredient.create!(name: 'brioche style bun', category: 'bun')
 ciabatta = Ingredient.create!(name: 'ciabatta', category: 'bun')
 hawaiian = Ingredient.create!(name: 'hawaiian', category: 'bun')
+sesame = Ingredient.create!(name: 'sesame seed bun', category: 'bun')
+rye = Ingredient.create!(name: 'rye bun', category: 'bun')
+
+
 
 
 beef = Ingredient.create!(name: 'beef patty', category: 'patty')
@@ -12,6 +19,8 @@ bison = Ingredient.create!(name: 'organic bison patty', category: 'patty')
 ahi_tuna = Ingredient.create!(name: 'hand-cut ahi tuna patty', category: 'patty')
 turkey = Ingredient.create!(name: 'ground turkey patty', category: 'patty')
 portobello = Ingredient.create!(name: 'portobello patty', category: 'patty')
+chorizo = Ingredient.create!(name: 'chorizo patty', category: 'patty')
+
 no_patty = Ingredient.create!(name: 'no patty', category: 'patty')
 
 
@@ -54,6 +63,8 @@ feta = Ingredient.create!(name: 'feta', category: 'cheese')
 provolone = Ingredient.create!(name: 'provolone', category: 'cheese')
 gouda = Ingredient.create!(name: 'gouda', category: 'cheese')
 gruyere = Ingredient.create!(name: 'gruyere', category: 'cheese')
+camembert = Ingredient.create!(name: 'camembert', category: 'cheese')
+
 
 
 cajun = Ingredient.create!(name: 'cajun', category: 'sauce')
@@ -67,7 +78,7 @@ mustard = Ingredient.create!(name: 'mustard', category: 'sauce')
 mayonnaise = Ingredient.create!(name: 'mayonnaise', category: 'sauce')
 
 
-
+bacon = Ingredient.create!(name: 'bacon', category: 'premium', price: 1.00)
 chili = Ingredient.create!(name: 'chili', category: 'premium', price: 1.50)
 shoestring_fries = Ingredient.create!(name: 'shoestring fries', price: 0.75)
 apples = Ingredient.create!(name: 'apples', category: 'premium', price: 0.50)
@@ -82,3 +93,9 @@ capers = Ingredient.create!(name: 'capers', category: 'premium', price: 0.50)
 ham = Ingredient.create!(name: 'ham', category: 'premium', price: 1.00)
 pineapple = Ingredient.create!(name: 'pineapple', category: 'premium', price: 1.50)
 
+kb = Burger.create!(name: 'If Looks Could Kale')
+kb.ingredients << [kale, beef, lettuce, sub_roll]
+rb = Burger.create!(name: 'It’s Fun to Eat at the rYeMCA Burger')
+rb.ingredients << [rye, mustard, cheddar, avocado]
+cb = Burger.create!(name: 'Chorizo Your Own Adventure')
+cb.ingredients << [chorizo, sesame, tomato, lettuce]
