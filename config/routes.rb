@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     post 'sign_in', on: :collection
   end
   resources :ingredients, only: [:index]
+  resources :orders, only: [:index, :show, :create]
   resources :burgers, only: [:index, :create, :show]
 
 end

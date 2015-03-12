@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(version: 20150312181846) do
     t.datetime "updated_at"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.integer  "burgers",     default: [], array: true
+    t.decimal  "total_price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
