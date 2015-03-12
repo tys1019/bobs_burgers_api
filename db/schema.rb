@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150312181846) do
+ActiveRecord::Schema.define(version: 20150312191605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 20150312181846) do
 
   add_index "burger_ingredients", ["burger_id"], name: "index_burger_ingredients_on_burger_id", using: :btree
   add_index "burger_ingredients", ["ingredient_id"], name: "index_burger_ingredients_on_ingredient_id", using: :btree
+
+  create_table "burger_orders", force: :cascade do |t|
+    t.integer "burger_id"
+    t.integer "order_id"
+  end
+
+  add_index "burger_orders", ["burger_id"], name: "index_burger_orders_on_burger_id", using: :btree
+  add_index "burger_orders", ["order_id"], name: "index_burger_orders_on_order_id", using: :btree
 
   create_table "burgers", force: :cascade do |t|
     t.string "name"
@@ -55,4 +63,6 @@ ActiveRecord::Schema.define(version: 20150312181846) do
 
   add_foreign_key "burger_ingredients", "burgers"
   add_foreign_key "burger_ingredients", "ingredients"
+  add_foreign_key "burger_orders", "burgers"
+  add_foreign_key "burger_orders", "orders"
 end

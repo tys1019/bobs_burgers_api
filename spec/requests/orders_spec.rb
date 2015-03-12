@@ -26,7 +26,6 @@ describe 'GET Requests' do
     it 'should create a new order' do
       post '/orders',
       { order: {
-        burgers: [12, 14],
         total_price: 9.75
       } }.to_json,
       {
