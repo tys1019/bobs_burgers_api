@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'pry'
 
 describe 'Burger Requests' do
 
@@ -28,16 +29,21 @@ describe 'Burger Requests' do
 
   describe '#create' do
     it 'creates a burger' do
+      tomato = Ingredient.create(name: "tomato", category: "vegetable")
       post '/burgers/',
       { burger: {
-        name: 'Test Burger'
+        name: 'Test Burger',
+        ingredients: [tomato]
       } }.to_json,
       { 'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s }
        expect(response).to be_success
        expect(response.content_type).to be Mime::JSON
 
        burger = JSON.parse(response.body)
+       binding.pry
        expect(burger["name"]).to eq "Test Burger"
+       # expect(Burger.last.ingredients.first).to eq(tomato)
+       # expect(burger["ingredients"]).to eq ["tomato"]
     end
   end
 end
