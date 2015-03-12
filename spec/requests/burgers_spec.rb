@@ -21,7 +21,8 @@ describe 'Burger Requests' do
       burger = FactoryGirl.create(:burger)
       get "/burgers/#{burger.id}"
       expect(response).to be_success
-      expect(response.body).to eq burger.to_json
+      json = JSON.parse(response.body)
+      expect(json["name"]).to eq burger.name
     end
   end
 
