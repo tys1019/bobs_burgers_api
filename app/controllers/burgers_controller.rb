@@ -1,3 +1,5 @@
+require 'pry'
+
 class BurgersController < ApplicationController
 
   def index
@@ -11,7 +13,9 @@ class BurgersController < ApplicationController
   end
 
   def create
+    binding.pry
     @burger = Burger.new(burger_params)
+    @burger.ingredients << params[:ingredients] if params[:ingredients]
     if @burger.save
       render json: @burger, status: :created, location: @burger
     else
