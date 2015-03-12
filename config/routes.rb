@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   end
   resources :ingredients, only: [:index]
   resources :orders, only: [:index, :show, :create]
+  resources :burgers, only: [:index, :create, :show]
+
 end
