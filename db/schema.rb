@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(version: 20150312191605) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer  "burgers",     default: [], array: true
     t.decimal  "total_price"
+    t.integer  "users_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
