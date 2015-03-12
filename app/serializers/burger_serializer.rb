@@ -1,3 +1,3 @@
 class BurgerSerializer < ActiveModel::Serializer
-  attributes :id, :name
+  attributes :id, :name, :ingredients
 end
