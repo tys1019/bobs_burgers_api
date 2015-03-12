@@ -9,4 +9,6 @@ class User < ActiveRecord::Base
       self.token = SecureRandom.uuid.gsub(/\-/,'')
     end while self.class.exists?(token: token)
   end
+
+  has_many :orders
 end
