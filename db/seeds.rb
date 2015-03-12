@@ -1,3 +1,6 @@
+Burger.destroy_all
+Ingredient.destroy_all
+
 sub_roll = Ingredient.create!(name: 'sub roll', category: 'bun')
 sourdough = Ingredient.create!(name: 'sourdough', category: 'bun')
 seven_grain = Ingredient.create!(name: 'seven-grain bun', category: 'bun')
@@ -12,6 +15,8 @@ bison = Ingredient.create!(name: 'organic bison patty', category: 'patty')
 ahi_tuna = Ingredient.create!(name: 'hand-cut ahi tuna patty', category: 'patty')
 turkey = Ingredient.create!(name: 'ground turkey patty', category: 'patty')
 portobello = Ingredient.create!(name: 'portobello patty', category: 'patty')
+chorizo = Ingredient.create!(name: 'chorizo patty', category: 'patty')
+
 no_patty = Ingredient.create!(name: 'no patty', category: 'patty')
 
 
@@ -54,6 +59,8 @@ feta = Ingredient.create!(name: 'feta', category: 'cheese')
 provolone = Ingredient.create!(name: 'provolone', category: 'cheese')
 gouda = Ingredient.create!(name: 'gouda', category: 'cheese')
 gruyere = Ingredient.create!(name: 'gruyere', category: 'cheese')
+camembert = Ingredient.create!(name: 'camembert', category: 'cheese')
+
 
 
 cajun = Ingredient.create!(name: 'cajun', category: 'sauce')
@@ -82,3 +89,6 @@ capers = Ingredient.create!(name: 'capers', category: 'premium', price: 0.50)
 ham = Ingredient.create!(name: 'ham', category: 'premium', price: 1.00)
 pineapple = Ingredient.create!(name: 'pineapple', category: 'premium', price: 1.50)
 
+Burger.create!(name: 'If Looks Could Kale')
+Burger.create!(name: 'It’s Fun to Eat at the rYeMCA Burger')
+Burger.create!(name: 'Chorizo Your Own Adventure')

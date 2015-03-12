@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'GET Requests' do
+describe 'ingredients Requests' do
   before(:all) do
     Ingredient.destroy_all
     @ingredients = FactoryGirl.create_list(:ingredient, 25)
