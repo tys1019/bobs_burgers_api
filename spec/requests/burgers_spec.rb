@@ -6,7 +6,10 @@ describe 'Burger Requests' do
   describe '#index' do
     before(:all) do
       Burger.destroy_all
+      Ingredient.destroy_all
       @burgers = FactoryGirl.create_list(:burger, 25)
+      FactoryGirl.create(:ingredient)
+      FactoryGirl.create(:ingredient)
     end
 
     it 'gets all the burgers' do
