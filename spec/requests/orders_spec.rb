@@ -24,9 +24,20 @@ describe 'GET Requests' do
   end
   describe '#create' do
     it 'should create a new order' do
+
+      Stripe.api_key = ENV["TEST_SECRET_KEY"]
+      token = Stripe::Token.create(
+                :card => {
+                  :number => "4242424242424242",
+                  :exp_month => 3,
+                  :exp_year => 2016,
+                  :cvc => "314"
+                },
+              )
       post '/orders',
       { order: {
-        total_price: 9.75
+        total_price: 9.75,
+        stripe_token: token.id
       } }.to_json,
       {
         'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s
@@ -35,6 +46,8 @@ describe 'GET Requests' do
       expect(response.content_type).to be Mime::JSON
       order = JSON.parse(response.body)
       expect(order['total_price']).to eq '9.75'
+      expect(order['stripe_transaction']).to eq Order.last.stripe_transaction
+
     end
   end
 end

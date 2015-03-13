@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 20150312191605) do
 
   create_table "orders", force: :cascade do |t|
     t.decimal  "total_price"
+    t.string   "stripe_token"
+    t.text     "stripe_transaction"
     t.integer  "users_id"
     t.datetime "created_at"
     t.datetime "updated_at"

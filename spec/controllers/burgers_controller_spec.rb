@@ -17,12 +17,12 @@ RSpec.describe BurgersController do
     end
   end
 
-  # describe '#create' do
-  #   it 'adds a burger to db' do
-  #     burger = Burger.new(name: 'The Sound and the Curry')
-  #     post :create, burger: burger.attributes
-  #     expect(response.status).to eq 201
-  #   end
-  # end
+  describe '#create' do
+    it 'adds a burger to db' do
+      burger = Burger.new(name: 'The Sound and the Curry')
+      post :create, burger: burger.attributes
+      expect(response.status).to eq 201
+    end
+  end
 
 end
