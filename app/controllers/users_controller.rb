@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   def sign_in
-    user = User.find_by(email: params[:email])
 
-    if user && user.authenticate(params[:password])
+    user = User.find_by(email: params['user']['email'])
+
+    if user && user.authenticate(params['user']['password'])
       render json: { token: user.token }
     else
       head :unauthorized
