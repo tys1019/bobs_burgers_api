@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150312191605) do
+ActiveRecord::Schema.define(version: 20150313141028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,8 @@ ActiveRecord::Schema.define(version: 20150312191605) do
   add_index "burger_orders", ["order_id"], name: "index_burger_orders_on_order_id", using: :btree
 
   create_table "burgers", force: :cascade do |t|
-    t.string "name"
+    t.string  "name"
+    t.decimal "price"
   end
 
   create_table "ingredients", force: :cascade do |t|
