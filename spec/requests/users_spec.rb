@@ -18,8 +18,10 @@ describe 'User requests' do
           address: '02130'
         } }.to_json,
       { 'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s }
+      json = JSON.parse(response.body)
       expect(response).to be_success
       expect(response.content_type).to be Mime::JSON
+      expect(json['token']).to eq User.last.token
     end
   end
 
@@ -30,8 +32,12 @@ describe 'User requests' do
       post '/users/sign_in',
       { email: user.email, password: user.password }.to_json,
       { 'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s }
+
+      json = JSON.parse(response.body)
       expect(response).to be_success
       expect(response.content_type).to be Mime::JSON
+      expect(json['token']).to eq user.token
+
     end
   end
 end
