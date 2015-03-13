@@ -6,6 +6,7 @@ gem 'spring', :group => :development
 gem 'pg'
 gem 'bcrypt'
 gem 'newrelic_rpm'
+gem 'stripe'
 gem 'rack-cors'
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
 gem 'nokogiri'
