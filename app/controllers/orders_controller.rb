@@ -1,5 +1,6 @@
+require 'pry'
 class OrdersController < ApplicationController
-
+  before_filter :authenticate, only: [:index]
   def index
     @orders = Order.all
     render json: @orders, status: 200
