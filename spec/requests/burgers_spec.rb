@@ -29,13 +29,15 @@ describe 'Burger Requests' do
 
   describe '#create' do
     it 'creates a burger' do
-      tomato = Ingredient.create(name: "tomato", category: "vegetable")
-      lettuce = Ingredient.create(name: "lettuce", category: "vegetable")
+      # tomato = Ingredient.create(name: "tomato", category: "vegetable")
+      # lettuce = Ingredient.create(name: "lettuce", category: "vegetable")
+      first_ingredient = Ingredient.first.name
+      last_ingredient = Ingredient.last.name
 
       post '/burgers/',
       { burger: {
         name: 'Test Burger',
-        ingredients: [tomato, lettuce]
+        ingredients: [first_ingredient, last_ingredient]
       } }.to_json,
       { 'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s }
        expect(response).to be_success
@@ -43,7 +45,7 @@ describe 'Burger Requests' do
 
        burger = JSON.parse(response.body)
        expect(burger["name"]).to eq "Test Burger"
-       expect(Burger.last.ingredients.first).to eq(tomato)
+       expect(Burger.last.ingredients.first.name).to eq(first_ingredient)
 
     end
   end

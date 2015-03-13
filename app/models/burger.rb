@@ -5,8 +5,9 @@ class Burger < ActiveRecord::Base
   has_many :orders, through: :burger_orders
 
   def add_ingredients(params)
+
     self.ingredients << params['burger']["ingredients"].map { |item|
-      self.ingredients << Ingredient.find(item['id'])
+      self.ingredients << Ingredient.where(name: item)
       }
   end
 end
