@@ -1,5 +1,3 @@
-
-
 class BurgersController < ApplicationController
 
   def index
@@ -16,6 +14,11 @@ class BurgersController < ApplicationController
     @burger = Burger.new(burger_params)
 
     @burger.add_ingredients(params) if params['burger']["ingredients"]
+
+    @burger.ingredients.each do |ingredient|
+      @burger.price = @burger.price + ingredient.price if ingredient.price
+    end
+    
     if @burger.save
       render json: @burger, status: :created, location: @burger
     else
@@ -26,7 +29,7 @@ class BurgersController < ApplicationController
   private
 
   def burger_params
-    params.require(:burger).permit(:name, :ingredients)
+    params.require(:burger).permit(:name, :ingredients, :price)
   end
 
 
