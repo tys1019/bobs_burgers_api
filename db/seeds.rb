@@ -99,3 +99,5 @@ rb = Burger.create!(name: 'It’s Fun to Eat at the rYeMCA Burger')
 rb.ingredients << [rye, mustard, cheddar, avocado]
 cb = Burger.create!(name: 'Chorizo Your Own Adventure')
 cb.ingredients << [chorizo, sesame, tomato, lettuce]
+ex = Burger.create!(name: 'Expensive Test')
+ex.ingredients << [rye, egg, deviled_egg, pineapple]
