@@ -3,14 +3,16 @@ require 'pry'
 
 describe 'Burger Requests' do
 
+  before(:all) do
+    Burger.destroy_all
+    Ingredient.destroy_all
+    @burgers = FactoryGirl.create_list(:burger, 25)
+    FactoryGirl.create(:ingredient)
+    FactoryGirl.create(:ingredient)
+  end
+
   describe '#index' do
-    before(:all) do
-      Burger.destroy_all
-      Ingredient.destroy_all
-      @burgers = FactoryGirl.create_list(:burger, 25)
-      FactoryGirl.create(:ingredient)
-      FactoryGirl.create(:ingredient)
-    end
+
 
     it 'gets all the burgers' do
       get '/burgers'
@@ -33,7 +35,7 @@ describe 'Burger Requests' do
   describe '#create' do
     it 'creates a burger' do
       first_ingredient = Ingredient.first.name
-      last_ingredient = Ingredient.last.name
+      last_ingredient = Ingredient.create!(name: 'pineapple', category: 'premium', price: 1.5).name
 
       post '/burgers/',
       { burger: {
@@ -47,7 +49,12 @@ describe 'Burger Requests' do
        burger = JSON.parse(response.body)
        expect(burger["name"]).to eq "Test Burger"
        expect(burger['ingredients'][0]['name']).to eq(first_ingredient)
+       expect(burger['price']).to eq "8.0"
 
+       burger_last = Burger.last
+       expect(burger_last.name).to eq "Test Burger"
+       expect(burger_last.ingredients[0]['name']).to eq(first_ingredient)
+       expect(burger_last.price).to eq 8.0
     end
   end
 end

@@ -80,7 +80,7 @@ mayonnaise = Ingredient.create!(name: 'mayonnaise', category: 'sauce')
 
 bacon = Ingredient.create!(name: 'bacon', category: 'premium', price: 1.00)
 chili = Ingredient.create!(name: 'chili', category: 'premium', price: 1.50)
-shoestring_fries = Ingredient.create!(name: 'shoestring fries', price: 0.75)
+shoestring_fries = Ingredient.create!(name: 'shoestring fries', category: 'premium', price: 0.75)
 apples = Ingredient.create!(name: 'apples', category: 'premium', price: 0.50)
 avocado = Ingredient.create!(name: 'avocado', category: 'premium', price: 1.50)
 polenta = Ingredient.create!(name: 'polenta', category: 'premium', price: 1.50)
@@ -99,5 +99,5 @@ rb = Burger.create!(name: 'It’s Fun to Eat at the rYeMCA Burger')
 rb.ingredients << [rye, mustard, cheddar, avocado]
 cb = Burger.create!(name: 'Chorizo Your Own Adventure')
 cb.ingredients << [chorizo, sesame, tomato, lettuce]
-ex = Burger.create!(name: 'Expensive Test')
+ex = Burger.create(name: 'Expensive Test')
 ex.ingredients << [rye, egg, deviled_egg, pineapple]
