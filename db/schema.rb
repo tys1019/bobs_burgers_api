@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20150316142121) do
 
   create_table "burgers", force: :cascade do |t|
     t.string  "name"
-    t.decimal "price"
+    t.decimal "price", default: 6.5
   end
 
   create_table "ingredients", force: :cascade do |t|

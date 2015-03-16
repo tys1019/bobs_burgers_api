@@ -15,10 +15,7 @@ class BurgersController < ApplicationController
 
     @burger.add_ingredients(params) if params['burger']["ingredients"]
 
-    @burger.ingredients.each do |ingredient|
-      @burger.price = @burger.price + ingredient.price if ingredient.price
-    end
-    
+
     if @burger.save
       render json: @burger, status: :created, location: @burger
     else
