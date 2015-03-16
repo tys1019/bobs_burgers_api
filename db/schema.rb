@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20150316142121) do
   create_table "burger_orders", force: :cascade do |t|
     t.integer "burger_id"
     t.integer "order_id"
-    t.integer "quantity"
+    t.integer "quantity",  default: 1
   end
 
   add_index "burger_orders", ["burger_id"], name: "index_burger_orders_on_burger_id", using: :btree
