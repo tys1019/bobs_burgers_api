@@ -30,7 +30,7 @@ describe 'User requests' do
       user = User.create(name: 'Test Testerson', email: 'test@test.com', password: 'testtest',)
 
       post '/users/sign_in',
-      { email: user.email, password: user.password }.to_json,
+      { user: { email: user.email, password: user.password } }.to_json,
       { 'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s }
 
       json = JSON.parse(response.body)

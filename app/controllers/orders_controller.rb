@@ -13,7 +13,6 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @order.stripe_transaction = @order.charge(params)
 
     if @order.save
       render json: @order, status: :created
