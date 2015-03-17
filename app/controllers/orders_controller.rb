@@ -2,8 +2,8 @@ require 'pry'
 class OrdersController < ApplicationController
   before_filter :authenticate, only: [:index]
   def index
-    @orders = Order.all
-    render json: @orders, status: 200
+      @orders = @user.orders.all
+      render json: @orders, status: 200
   end
 
   def show
@@ -12,7 +12,15 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
+    token = request.env["HTTP_AUTHORIZATION"].gsub(/Token token=/,'')
+    @user = User.find_by(token: token)
+
+    if token == "undefined"
+      @order = Order.new(order_params)
+    else
+      @order = @user.orders.new(order_params)
+    end
+
     @order.stripe_transaction = @order.charge(params)
 
     if @order.save

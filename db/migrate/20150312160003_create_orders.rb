@@ -4,9 +4,10 @@ class CreateOrders < ActiveRecord::Migration
       t.decimal :total_price
       t.string :stripe_token
       t.text :stripe_transaction
-      t.belongs_to :users
+      t.belongs_to :user, index: true
 
       t.timestamps
     end
+    add_foreign_key :orders, :users
   end
 end
