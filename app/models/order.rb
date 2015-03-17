@@ -13,7 +13,7 @@ class Order < ActiveRecord::Base
     # Create the charge on Stripe's servers - this will charge the user's card
     begin
       charge = Stripe::Charge.create(
-        :amount => (params["order"]["total_price"] * 100).to_i, # amount in cents, again
+        :amount => (params["order"]["total_price"].to_i * 100).to_i, # amount in cents, again
         :currency => "usd",
         :source => token,
         :description => "Sweet sweet burgers"
