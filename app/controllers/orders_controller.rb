@@ -13,6 +13,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    @order.stripe_transaction = @order.charge(params)
 
     if @order.save
       render json: @order, status: :created
@@ -24,7 +25,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:burgers, :total_price, :stripe_token)
+    params.require(:order).permit(:items, :total_price, :stripe_token)
   end
 
 end
