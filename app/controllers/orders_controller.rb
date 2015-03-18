@@ -2,6 +2,9 @@ require 'pry'
 class OrdersController < ApplicationController
   before_filter :authenticate, only: [:index]
   def index
+      token = request.env["HTTP_AUTHORIZATION"].gsub(/Token token=/,'')
+      @user = User.find_by(token: token)
+
       @orders = @user.orders.all
       render json: @orders, status: 200
   end
