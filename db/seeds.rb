@@ -93,11 +93,11 @@ capers = Ingredient.create!(name: 'capers', category: 'premium')
 ham = Ingredient.create!(name: 'ham', category: 'premium')
 pineapple = Ingredient.create!(name: 'pineapple', category: 'premium')
 
-kb = Burger.create!(name: 'If Looks Could Kale')
+kb = Burger.create!(name: 'If Looks Could Kale', image: '/images/burger4.jpg')
 kb.ingredients << [kale, beef, lettuce, sub_roll]
-rb = Burger.create!(name: 'It’s Fun to Eat at the rYeMCA Burger')
+rb = Burger.create!(name: 'It’s Fun to Eat at the rYeMCA Burger', image: '/images/burger3.jpg')
 rb.ingredients << [rye, mustard, cheddar, avocado]
-cb = Burger.create!(name: 'Chorizo Your Own Adventure')
+cb = Burger.create!(name: 'Chorizo Your Own Adventure', image: '/images/burger2.jpg')
 cb.ingredients << [chorizo, sesame, tomato, lettuce]
-ex = Burger.create(name: 'Expensive Test')
+ex = Burger.create(name: 'Expensive Test', image: '/images/burger1.jpg')
 ex.ingredients << [rye, egg, deviled_egg, pineapple]

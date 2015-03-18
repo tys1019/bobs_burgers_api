@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150317140854) do
+ActiveRecord::Schema.define(version: 20150318142143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20150317140854) do
   create_table "burgers", force: :cascade do |t|
     t.string  "name"
     t.decimal "price", default: 6.5
+    t.text    "image"
   end
 
   create_table "ingredients", force: :cascade do |t|
