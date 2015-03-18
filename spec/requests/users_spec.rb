@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'byebug'
 
 describe 'User requests' do
 
