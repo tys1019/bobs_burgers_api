@@ -64,6 +64,8 @@ provolone = Ingredient.create!(name: 'provolone', category: 'cheese')
 gouda = Ingredient.create!(name: 'gouda', category: 'cheese')
 gruyere = Ingredient.create!(name: 'gruyere', category: 'cheese')
 camembert = Ingredient.create!(name: 'camembert', category: 'cheese')
+manchego = Ingredient.create!(name: 'manchego', category: 'cheese')
+
 
 
 
@@ -101,3 +103,27 @@ cb = Burger.create!(name: 'Chorizo Your Own Adventure', image: '/bobs_burger_app
 cb.ingredients << [chorizo, sesame, tomato, lettuce]
 ex = Burger.create(name: 'Expensive Test', price: '9.50', image: '/bobs_burger_app/images/burger1.jpg')
 ex.ingredients << [rye, egg, deviled_egg, pineapple]
+
+
+ex = Burger.create(name: "Sweet Chili o' Mine", price: '8.50', image: '/bobs_burger_app/images/burger10.jpg')
+ex.ingredients << [beef, chili, bacon, cheddar]
+
+ex = Burger.create(name: "Parma Parma Parma Chameleon", price: '8.50', image: '/bobs_burger_app/images/burger7.jpg')
+ex.ingredients << [parmesan, shoestring_fries, bison]
+
+ex = Burger.create(name: "A Good Manchego is Hard to Find", price: '8.50', image: '/bobs_burger_app/images/burger8.jpg')
+ex.ingredients << [rye, egg, deviled_egg, pineapple]
+
+ex = Burger.create(name: "Three Beets to the Wind", price: '8.50', image: '/bobs_burger_app/images/burger9.jpg')
+ex.ingredients << [beets, chard, artichoke, ahi_tuna]
+
+ex = Burger.create(name: "Bleu is the Warmest Cheese", price: '8.50', image: '/bobs_burger_app/images/burger11.jpg')
+ex.ingredients << [bleu, portabello, egg]
+
+ex = Burger.create(name: "Onion Ring Around the Rosemary", price: '8.50', image: '/bobs_burger_app/images/burger12.jpg')
+ex.ingredients << [onion_rings, rosemary, brie]
+
+
+
+
+
