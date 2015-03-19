@@ -99,5 +99,5 @@ rb = Burger.create!(name: 'It’s Fun to Eat at the rYeMCA Burger', image: '/ima
 rb.ingredients << [rye, mustard, cheddar, avocado]
 cb = Burger.create!(name: 'Chorizo Your Own Adventure', image: '/images/burger2.jpg')
 cb.ingredients << [chorizo, sesame, tomato, lettuce]
-ex = Burger.create(name: 'Expensive Test', image: '/images/burger1.jpg')
+ex = Burger.create(name: 'Expensive Test', price: '9.50', image: '/images/burger1.jpg')
 ex.ingredients << [rye, egg, deviled_egg, pineapple]

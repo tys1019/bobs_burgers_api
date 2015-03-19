@@ -34,9 +34,9 @@ ActiveRecord::Schema.define(version: 20150318142143) do
   add_index "burger_orders", ["order_id"], name: "index_burger_orders_on_order_id", using: :btree
 
   create_table "burgers", force: :cascade do |t|
-    t.string  "name"
-    t.decimal "price", default: 6.5
-    t.text    "image"
+    t.string "name"
+    t.string "price", default: "6.50"
+    t.text   "image"
   end
 
   create_table "ingredients", force: :cascade do |t|
