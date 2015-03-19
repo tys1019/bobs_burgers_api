@@ -118,7 +118,7 @@ ex = Burger.create(name: "Three Beets to the Wind", price: '8.50', image: '/bobs
 ex.ingredients << [beets, chard, artichoke, ahi_tuna]
 
 ex = Burger.create(name: "Bleu is the Warmest Cheese", price: '8.50', image: '/bobs_burger_app/images/burger11.jpg')
-ex.ingredients << [bleu, portabello, egg]
+ex.ingredients << [bleu, portobello, egg]
 
 ex = Burger.create(name: "Onion Ring Around the Rosemary", price: '8.50', image: '/bobs_burger_app/images/burger12.jpg')
 ex.ingredients << [onion_rings, rosemary, brie]
